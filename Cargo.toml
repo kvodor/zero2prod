@@ -3,4 +3,18 @@ name = "zero2prod"
 version = "0.1.0"
 edition = "2021"
 
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+path = "src/main.rs"
+name = "zero2prod"
+
 [dependencies]
+actix-http = "3.8.0"
+actix-rt = "2.10.0"
+actix-web = "4.8.0"
+tokio = "1.39.2"
+
+[dev-dependencies]
+reqwest = "0.12.5"
