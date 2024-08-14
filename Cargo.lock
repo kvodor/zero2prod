@@ -1964,6 +1964,7 @@ dependencies = [
  "actix-rt",
  "actix-web",
  "reqwest",
+ "serde",
  "tokio",
 ]
 
