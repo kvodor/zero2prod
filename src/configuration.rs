@@ -1,4 +1,4 @@
-use config::{Config, ConfigBuilder, File, FileFormat};
+use config::{Config, File, FileFormat};
 
 #[derive(serde::Deserialize)]
 pub struct Settings {
@@ -16,7 +16,9 @@ pub struct DatabaseSettings {
 }
 
 pub fn get_configuration() -> Result<Settings, config::ConfigError> {
-    let mut builder = ConfigBuilder::<Settings>::builder()
-        .add_source(File::new("configuration", FileFormat::Yaml));
-    builder.build()
+    let settings = Config::builder()
+        .add_source(File::new("configuration", FileFormat::Yaml))
+        .build()?;
+    let config = settings.try_deserialize::<Settings>()?;
+    Ok(config)
 }
