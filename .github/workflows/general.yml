@@ -36,10 +36,10 @@ jobs:
     steps:
         # Downloads a copy of the code in your repository before running CI tests
       - name: Check out repository code
-        # The uses keyword specifies that this step will run v3 of the actions/checkout action. 
+        # The uses keyword specifies that this step will run v4 of the actions/checkout action. 
         # This is an action that checks out your repository onto the runner, allowing you to run scripts or other actions against your code (such as build and test tools).
         # You should use the checkout action any time your workflow will run against the repository's code.
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
        # This GitHub Action installs a Rust toolchain using rustup. It is designed for one-line concise usage and good defaults.
       - name: Install the Rust toolchain
@@ -99,7 +99,7 @@ jobs:
         ports:
           - 25432:5432
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
         with:
           components: clippy
@@ -135,7 +135,7 @@ jobs:
           - 25432:5432
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
       - name: Install postgresql-client
         run: sudo apt-get update && sudo apt-get install postgresql-client -y
